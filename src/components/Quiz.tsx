@@ -1,15 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Timer from "./Timer";
+import { AnsweredQuestion, Question } from "../types/quiz.types";
 
 const Quiz = () => {
   const [quizStarted, setQuizStarted] = useState<Boolean>(false);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [optionSelected, setOptionSelected] = useState<number | null>(null);
-  const [questions, setQuestions] = useState([]);
-  const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [answeredQuestions, setAnsweredQuestions] = useState<AnsweredQuestion[]>([]);
   const [quizSubmitted, setQuizSubmitted] = useState<Boolean>(false);
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState<number>(15);
   const [score, setScore] = useState<number>(0);
 
   const fetchData = async () => {
@@ -17,10 +18,28 @@ const Quiz = () => {
     setQuestions(response.data.questions);
   };
   const handleNextQuestion = () => {
-    if (questions[currentQuestion].options[optionSelected]?.is_correct) {
-      setScore((prevScore) => prevScore + 4);
+    if(optionSelected != null) {
+        if (questions[currentQuestion].options[optionSelected]?.is_correct) {
+            setScore((prevScore) => prevScore + 4);
+          }
+          if (currentQuestion + 1 < questions.length && optionSelected >= 0) {
+            setAnsweredQuestions((prev) => [
+              ...prev,
+              {
+                id: currentQuestion,
+                selectedAnswer: optionSelected,
+                isCorrect:
+                  questions[currentQuestion].options[optionSelected].is_correct,
+              },
+            ]);
+            setCurrentQuestion(currentQuestion + 1);
+            setOptionSelected(null);
+          }
     }
-    if (currentQuestion + 1 < questions.length && optionSelected >= 0) {
+  };
+
+  const handleSubmitQuiz = () => {
+    if (optionSelected !== null) { 
       setAnsweredQuestions((prev) => [
         ...prev,
         {
@@ -30,26 +49,14 @@ const Quiz = () => {
             questions[currentQuestion].options[optionSelected].is_correct,
         },
       ]);
-      setCurrentQuestion(currentQuestion + 1);
-      setOptionSelected(null);
-    }
-  };
-
-  const handleSubmitQuiz = () => {
-    setAnsweredQuestions((prev) => [
-      ...prev,
-      {
-        id: currentQuestion,
-        selectedAnswer: optionSelected,
-        isCorrect:
-          questions[currentQuestion].options[optionSelected].is_correct,
-      },
-    ]);
-    if (questions[currentQuestion].options[optionSelected].is_correct) {
-      setScore((prevScore) => prevScore + 4);
+  
+      if (questions[currentQuestion].options[optionSelected].is_correct) {
+        setScore((prevScore) => prevScore + 4);
+      }
     }
     setQuizSubmitted(true);
   };
+  
 
   const handleRestartQuiz = () => {
     setAnsweredQuestions([]);
@@ -81,7 +88,7 @@ const Quiz = () => {
                   {questions[currentQuestion]?.description}
                 </h3>
                 <Timer
-                  key={currentQuestion}
+                  currentQuestion={currentQuestion}
                   duration={15}
                   timeLeft={timeLeft}
                   setTimeLeft={setTimeLeft}
