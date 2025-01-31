@@ -8,12 +8,14 @@ This project is a quiz app
   <img src="./src/assets/3.png" alt="Home Screen" width="800"/>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="./src/assets/4.png" alt="Home Screen" width="250"/>
-  <img src="./src/assets/5.png" alt="Home Screen" width="250"/>
-  <img src="./src/assets/6.png" alt="Home Screen" width="250"/>
+  <img src="./src/assets/4.png" alt="Home Screen" width="265"/>
+  <img src="./src/assets/5.png" alt="Home Screen" width="265"/>
+  <img src="./src/assets/6.png" alt="Home Screen" width="265"/>
 </div>
 
-  <video src='./src/assets/demo-video.mp4' alt="video" width="800" controls ></video>
+## Demo Video
+
+<video src="./src/assets/demo-video.mp4" width="800" controls></video>
 
 
 
@@ -23,7 +25,7 @@ To install and run this project, follow these steps:
 
 1. Clone the repository:
   ```sh
-  git clone https://github.com/yourusername/testline-assignment.git
+  git clone https://github.com/LEELAMANOHARGUDIVADA/testline-assignment.git
   ```
 2. Navigate to the project directory:
   ```sh
