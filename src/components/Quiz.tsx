@@ -14,7 +14,7 @@ const Quiz = () => {
   const [score, setScore] = useState<number>(0);
 
   const fetchData = async () => {
-    const response = await axios.get("https://api.jsonserve.com/Uw5CrX");
+    const response = await axios.get("/api");
     setQuestions(response.data.questions);
   };
   const handleNextQuestion = () => {
@@ -55,6 +55,7 @@ const Quiz = () => {
       }
     }
     setQuizSubmitted(true);
+    setCurrentQuestion(0);
   };
   
 

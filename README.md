@@ -1,50 +1,97 @@
-# React + TypeScript + Vite
+# Testline Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a quiz app
 
-Currently, two official plugins are available:
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="./src/assets/1.png" alt="Home Screen" width="300"/>
+  <img src="./src/assets/2.png" alt="Home Screen" width="300"/>
+  <img src="./src/assets/3.png" alt="Home Screen" width="300"/>
+  <img src="./src/assets/4.png" alt="Home Screen" width="300"/>
+  <img src="./src/assets/5.png" alt="Home Screen" width="300"/>
+  <img src="./src/assets/6.png" alt="Home Screen" width="300"/>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+To install and run this project, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
+  ```sh
+  git clone https://github.com/yourusername/testline-assignment.git
+  ```
+2. Navigate to the project directory:
+  ```sh
+  cd testline-assignment
+  ```
+3. Install the dependencies:
+  ```sh
+  npm install
+  ```
+4. Start the application:
+  ```sh
+  npm run dev
+  ```
 
-- Configure the top-level `parserOptions` property like this:
+## Components
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  ## App.tsx
+  This is the main component of the application. It renders the [Quiz](src/components/Quiz.tsx) component.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+  ## Quiz.tsx
+  This component handles the quiz logic, including fetching questions, handling user answers, and displaying the score.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  # State Variables:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+  | State Variable     | Type    |
+  | ------------------ | ------- |
+  | `quizStarted`      | boolean |
+  | `currentQuestion`  | number  |
+  | `optionSelected`   | number  |
+  | `questions`        | Array   |
+  | `answeredQuestions`| Array   |
+  | `timeLeft`         | number  |
+  | `score`            | number  |
+
+  # Functions:
+
+  | Function             | Description                         |
+  | -------------------- | ----------------------------------- |
+  | `fetchData`          | Fetches quiz questions from the API |
+  | `handleNextQuestion` | Handles moving to the next question |
+  | `handleSubmitQuiz`   | Handles submitting the quiz         |
+  | `handleRestartQuiz`  | Handles restarting the quiz         |
+
+  ## Timer.tsx
+  This component handles the countdown timer for each question.
+
+  # Props
+
+  | Props              | Description                                                |
+  | ------------------ | ---------------------------------------------------------- |
+  | `duration`         | Number representing the total duration of the timer        |
+  | `currentQuestion`  | Number representing the current question index             |
+  | `timeLeft`         | Number representing the time left for the current question |
+  | `setTimeLeft`      | Function to update the time left                           |
+
+  # Functions:
+
+  | Function             | Description                                              |
+  | -------------------- | -------------------------------------------------------- |
+  | `getStrokeColor`     | Determines the color of the timer based on the time left |
+
+## Usage
+
+# Start the Quiz:
+
+ Click the "Start Quiz" button to begin the quiz.
+
+# Answer Questions:
+
+elect an option for each question and click "Next" to move to the next question.
+
+# Submit the Quiz:
+
+ Click the "Submit Quiz" button after answering all questions to see your score.
+# Restart the Quiz:
+
+Click the "Restart Quiz" button to retake the quiz.
