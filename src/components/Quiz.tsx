@@ -1,17 +1,16 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Question } from "../types/quiz.types";
+import { useEffect, useState } from "react";
 import Timer from "./Timer";
 
 const Quiz = () => {
   const [quizStarted, setQuizStarted] = useState<Boolean>(false);
-  const [currentQuestion, setCurrentQuestion] = useState<Number>(0);
-  const [optionSelected, setOptionSelected] = useState(null);
-  const [questions, setQuestions] = useState<Question>([]);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [optionSelected, setOptionSelected] = useState<number | null>(null);
+  const [questions, setQuestions] = useState([]);
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [quizSubmitted, setQuizSubmitted] = useState<Boolean>(false);
   const [timeLeft, setTimeLeft] = useState(15);
-  const [score, setScore] = useState<Number>(0);
+  const [score, setScore] = useState<number>(0);
 
   const fetchData = async () => {
     const response = await axios.get("/api");
