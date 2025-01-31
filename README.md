@@ -14,8 +14,7 @@ This project is a quiz app
 </div>
 
 ## Demo Video
-
-<video src="./src/assets/demo-video.mp4" width="800" controls></video>
+  [Watch the video](https://drive.google.com/file/d/1zUI5eXXz6nA1Q1E9Oq9_GghfvuTuyIgX/view?usp=sharing)
 
 
 
