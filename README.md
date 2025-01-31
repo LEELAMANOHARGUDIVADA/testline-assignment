@@ -3,13 +3,16 @@
 This project is a quiz app
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="./src/assets/1.png" alt="Home Screen" width="300"/>
-  <img src="./src/assets/2.png" alt="Home Screen" width="300"/>
-  <img src="./src/assets/3.png" alt="Home Screen" width="300"/>
-  <img src="./src/assets/4.png" alt="Home Screen" width="300"/>
-  <img src="./src/assets/5.png" alt="Home Screen" width="300"/>
-  <img src="./src/assets/6.png" alt="Home Screen" width="300"/>
+  <img src="./src/assets/1.png" alt="Home Screen" width="800"/>
+  <img src="./src/assets/2.png" alt="Home Screen" width="800"/>
+  <img src="./src/assets/3.png" alt="Home Screen" width="800"/>
 </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="./src/assets/4.png" alt="Home Screen" width="150"/>
+  <img src="./src/assets/5.png" alt="Home Screen" width="150"/>
+  <img src="./src/assets/6.png" alt="Home Screen" width="150"/>
+</div>
+
 
 ## Installation
 
@@ -40,7 +43,7 @@ To install and run this project, follow these steps:
   ## Quiz.tsx
   This component handles the quiz logic, including fetching questions, handling user answers, and displaying the score.
 
-  # State Variables:
+  ## State Variables:
 
   | State Variable     | Type    |
   | ------------------ | ------- |
@@ -52,7 +55,7 @@ To install and run this project, follow these steps:
   | `timeLeft`         | number  |
   | `score`            | number  |
 
-  # Functions:
+  ## Functions:
 
   | Function             | Description                         |
   | -------------------- | ----------------------------------- |
@@ -61,10 +64,10 @@ To install and run this project, follow these steps:
   | `handleSubmitQuiz`   | Handles submitting the quiz         |
   | `handleRestartQuiz`  | Handles restarting the quiz         |
 
-  ## Timer.tsx
+  # Timer.tsx
   This component handles the countdown timer for each question.
 
-  # Props
+  ## Props
 
   | Props              | Description                                                |
   | ------------------ | ---------------------------------------------------------- |
@@ -73,25 +76,26 @@ To install and run this project, follow these steps:
   | `timeLeft`         | Number representing the time left for the current question |
   | `setTimeLeft`      | Function to update the time left                           |
 
-  # Functions:
+  ## Functions:
 
   | Function             | Description                                              |
   | -------------------- | -------------------------------------------------------- |
   | `getStrokeColor`     | Determines the color of the timer based on the time left |
 
-## Usage
+# Usage
 
-# Start the Quiz:
+## Start the Quiz:
 
  Click the "Start Quiz" button to begin the quiz.
 
-# Answer Questions:
+## Answer Questions:
 
-elect an option for each question and click "Next" to move to the next question.
+Select an option for each question and click "Next" to move to the next question.
 
-# Submit the Quiz:
+## Submit the Quiz:
 
  Click the "Submit Quiz" button after answering all questions to see your score.
-# Restart the Quiz:
 
-Click the "Restart Quiz" button to retake the quiz.
+## Restart the Quiz:
+
+ Click the "Restart Quiz" button to retake the quiz.
