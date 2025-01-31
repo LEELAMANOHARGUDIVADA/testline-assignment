@@ -8,13 +8,13 @@ This project is a quiz app
   <img src="./src/assets/3.png" alt="Home Screen" width="800"/>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="./src/assets/4.png" alt="Home Screen" width="300"/>
-  <img src="./src/assets/5.png" alt="Home Screen" width="300"/>
-  <img src="./src/assets/6.png" alt="Home Screen" width="300"/>
+  <img src="./src/assets/4.png" alt="Home Screen" width="250"/>
+  <img src="./src/assets/5.png" alt="Home Screen" width="250"/>
+  <img src="./src/assets/6.png" alt="Home Screen" width="250"/>
 </div>
-<div>
-  <video src='./src/assets/demo-video.mp4' alt="video" width="800" />
-</div>
+
+  <video src='./src/assets/demo-video.mp4' alt="video" width="800" controls ></video>
+
 
 
 ## Installation
